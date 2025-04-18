@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joshua Brigati - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        body {
+            background-color: #111;
+            color: white;
+            background-image: linear-gradient(135deg, rgba(0, 0, 255, 0.2), rgba(128, 0, 128, 0.2));
+            min-height: 100vh;
+            overflow-x: hidden;
+            padding: 20px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-gap: 15px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .profile-card {
+            grid-column: span 4;
+            background-color: rgba(20, 20, 20, 0.7);
+            border-radius: 12px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .profile-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .name {
+            font-size: 32px;
+            font-weight: 600;
+        }
+
+        .bio {
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        .map-section {
+            grid-column: span 4;
+            background-color: rgba(20, 20, 20, 0.7);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .map-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .resume-section {
+            grid-column: span 4;
+            background-color: rgba(20, 20, 20, 0.7);
+            border-radius: 12px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .resume-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .resume-title {
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .resume-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .icon-button {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .theme-toggle {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .toggle-button {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .social-link {
+            grid-column: span 2;
+            background-color: rgba(20, 20, 20, 0.7);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+        }
+
+        .social-icon {
+            width: 45px;
+            height: 45px;
+        }
+
+        .technologies {
+            grid-column: span 6;
+            background-color: rgba(20, 20, 20, 0.7);
+            border-radius: 12px;
+            padding: 30px;
+        }
+
+        .tech-header {
+            margin-bottom: 20px;
+            color: #999;
+            font-size: 14px;
+        }
+
+        .tech-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .tech-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ts-icon {
+            background-color: #007acc;
+        }
+
+        .js-icon {
+            background-color: #f7df1e;
+        }
+
+        .tailwind-icon {
+            background-color: #38bdf8;
+        }
+
+        .firebase-icon {
+            background-color: #ffca28;
+        }
+
+        .tech-love {
+            display: flex;
+            align-items: center;
+        }
+
+        .heart {
+            color: #ff3366;
+            margin-left: 5px;
+        }
+
+        .experience-section {
+            grid-column: span 6;
+            background-color: rgba(20, 20, 20, 0.7);
+            border-radius: 12px;
+            padding: 30px;
+        }
+
+        .experience-header {
+            color: #999;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+
+        .experience-title {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 25px;
+        }
+
+        .job {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .job-title {
+            font-size: 24px;
+            font-weight: 500;
+        }
+
+        .company {
+            text-align: right;
+        }
+
+        .company-name {
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        .company-period {
+            color: #999;
+            font-size: 14px;
+        }
+
+        .strikethrough {
+            text-decoration: line-through;
+            color: #888;
+        }
+
+        .portfolio-banner {
+            grid-column: span 8;
+            background-color: rgba(20, 20, 20, 0.7);
+            border-radius: 12px;
+            padding: 15px;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        
+        .portfolio-text {
+            display: inline-block;
+            animation: scroll 20s linear infinite;
+        }
+        
+        .portfolio-text span {
+            margin-right: 20px;
+            color: #888;
+        }
+
+        .portfolio-text span.active {
+            color: white;
+        }
+
+        .portfolio-text span::after {
+            content: "★";
+            margin-left: 5px;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-container">
+        <div class="portfolio-banner">
+            <div class="portfolio-text">
+                <span>PERSONAL</span>
+                <span class="active">PORTFOLIO</span>
+                <span>PERSONAL</span>
+                <span class="active">PORTFOLIO</span>
+                <span>PERSONAL</span>
+                <span class="active">PORTFOLIO</span>
+                <span>PERSONAL</span>
+            </div>
+        </div>
+
+        <div class="profile-card">
+            <div class="profile-header">
+                <div class="avatar">
+                    <img src="/api/placeholder/60/60" alt="Joshua Brigati avatar">
+                </div>
+                <h1 class="name">Joshua Brigati</h1>
+            </div>
+            <p class="bio">
+                I am passionate about building beautiful and functional user interfaces.<br><br>
+                Currently work at TFL on the Station team.
+            </p>
+        </div>
+
+        <div class="map-section">
+            <div class="map-container">
+                <img src="/api/placeholder/400/250" alt="Austin Map">
+            </div>
+        </div>
+
+        <div class="resume-section">
+            <div class="resume-header">
+                <h2 class="resume-title">RESUME</h2>
+                <div class="resume-actions">
+                    <div class="icon-button">↓</div>
+                    <div class="icon-button">👁️</div>
+                </div>
+            </div>
+            <div class="theme-toggle">
+                <div class="toggle-button">☀️</div>
+                <div class="toggle-button">🌙</div>
+            </div>
+        </div>
+
+        <div class="social-link">
+            <div class="social-icon">in</div>
+        </div>
+
+        <div class="social-link">
+            <div class="social-icon">
+                <svg viewBox="0 0 24 24" fill="white">
+                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+            </div>
+        </div>
+
+        <div class="technologies">
+            <div class="tech-header">CURRENTLY USING</div>
+            <div class="tech-love">TECH I <span class="heart">❤️</span></div>
+            <div class="tech-icons">
+                <div class="tech-icon ts-icon">TS</div>
+                <div class="tech-icon js-icon">JS</div>
+                <div class="tech-icon tailwind-icon">
+                    <svg viewBox="0 0 24 24" fill="#38bdf8" width="30" height="30">
+                        <path d="M12.001,4.8c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 C13.666,10.618,15.027,12,18.001,12c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C16.337,6.182,14.976,4.8,12.001,4.8z M6.001,12c-3.2,0-5.2,1.6-6,4.8c1.2-1.6,2.6-2.2,4.2-1.8c0.913,0.228,1.565,0.89,2.288,1.624 c1.177,1.194,2.538,2.576,5.512,2.576c3.2,0,5.2-1.6,6-4.8c-1.2,1.6-2.6,2.2-4.2,1.8c-0.913-0.228-1.565-0.89-2.288-1.624 C10.337,13.382,8.976,12,6.001,12z"/>
+                    </svg>
+                </div>
+                <div class="tech-icon firebase-icon">F</div>
+            </div>
+        </div>
+
+        <div class="experience-section">
+            <div class="experience-header">6 YEARS OF</div>
+            <h2 class="experience-title">EXPERIENCE</h2>
+            
+            <div class="job">
+                <div class="job-info">
+                    <h3 class="job-title">Web Developer</h3>
+                </div>
+                <div class="company">
+                    <div class="company-name">Terraform Labs</div>
+                    <div class="company-period">2022 - Present</div>
+                </div>
+            </div>
+            
+            <div class="job">
+                <div class="job-info">
+                    <h3 class="job-title strikethrough">Software Engineer</h3>
+                </div>
+                <div class="company">
+                    <div class="company-name">Verb Inc.</div>
+                    <div class="company-period">2019 - 2022</div>
+                </div>
+            </div>
+            
+            <div class="job">
+                <div class="job-info">
+                    <h3 class="job-title strikethrough">Jr. Front End Engineer</h3>
+                </div>
+                <div class="company">
+                    <div class="company-name">PNI Digital Media</div>
+                    <div class="company-period">2017 - 2019</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
