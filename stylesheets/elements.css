@@ -205,7 +205,6 @@
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    
   }
 
 .theme-toggle-box i {
@@ -488,6 +487,7 @@ font-size: 15px;
   height: 40vh;
   width: 95%;
   margin: 0 auto;
+  opacity: 1; /* Override for initial page load */
  }
 
  .upper-name-box p {
@@ -519,6 +519,7 @@ font-size: 15px;
 .tagline-box {
   width: 95% !important;
   margin: 10px auto;
+  opacity: 1; /* Override for initial page load */
 }
 
 .marquee span {
@@ -534,6 +535,7 @@ font-size: 15px;
   width: 95% !important;
   margin: 15px auto;
   position: static;
+  opacity: 1; /* Override for initial page load */
 }
 
 .theme-toggle-box {
@@ -544,6 +546,7 @@ font-size: 15px;
   height: 90px !important;
   width: 90% !important;
   margin: 10px auto !important;
+  opacity: 1; /* Override for initial page load */
 }
 
 .social-box i {
@@ -563,6 +566,7 @@ font-size: 15px;
 .techstack-box {
   width: 95%;
   margin: 10px auto;
+  opacity: 1; /* Override for initial page load */
 }
 
 
@@ -582,6 +586,7 @@ font-size: 15px;
   height: 100%;
   width: 95%;
   margin: 20px auto !important;
+  opacity: 1; /* Override for initial page load */
 }
 
 .upper-experience-box p {
@@ -613,6 +618,19 @@ font-size: 15px;
   width: 95%;
   margin: 20px auto !important;
   max-width: 500px;
+  visibility: visible; /* Change to visible by default */
+  opacity: 0; /* Use opacity for the animation instead */
+}
+
+/* Only make them invisible when they have the scroll-animated class (added by JS) */
+.project-box1.scroll-animated,
+.project-box2.scroll-animated {
+  visibility: hidden;
+}
+
+.project-box1.visible, .project-box2.visible {
+  animation: fadeInUp 0.6s cubic-bezier(0.33, 1, 0.68, 1) forwards;
+  visibility: visible !important;
 }
 
 .lower-pb span {
@@ -627,12 +645,16 @@ font-size: 15px;
   margin-right: 5px !important;
   height: 18px;
   margin-bottom: 10px;
-  
-  
 }
 
 .left-box, .right-box {
   margin: 20px auto !important;
+  opacity: 0;
+  will-change: opacity, transform;
+}
+
+.left-box.visible, .right-box.visible {
+  animation: fadeInUp 0.6s cubic-bezier(0.33, 1, 0.68, 1) forwards;
 }
 
 #pb4 {
@@ -645,6 +667,139 @@ font-size: 15px;
   width: 95%;
   margin: 40px auto 20px auto;
   padding: 15px 0;
+  opacity: 0;
+  will-change: opacity, transform;
 }
 
+.p-s-box.visible {
+  animation: fadeInUp 0.6s cubic-bezier(0.33, 1, 0.68, 1) forwards;
+}
+}
+
+/* Blur effect on load and fade-in animations */
+@keyframes blurFadeIn {
+  0% {
+    opacity: 0;
+    filter: blur(20px);
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1);
+  }
+}
+
+/* Apply simultaneous blur effect on desktop */
+@media (min-width: 769px) {
+  .name-box, .tagline-box, .location-box, .theme-toggle-box,
+  .resume-box, .social-box, .techstack-box, .email-box,
+  .experience-box, .project-box1, .project-box2, .p-s-box {
+    animation: blurFadeIn 0.8s ease-out forwards;
+  }
+}
+
+/* Different animation delays for staggered effect only on mobile */
+@media (max-width: 768px) {
+  .name-box, .tagline-box, .location-box, .theme-toggle-box,
+  .resume-box, .social-box, .techstack-box, .email-box,
+  .experience-box, .project-box1, .project-box2, .p-s-box {
+    animation: blurFadeIn 0.8s ease-out forwards;
+  }
+  
+  .name-box { animation-delay: 0.1s; }
+  .tagline-box { animation-delay: 0.2s; }
+  .resume-box { animation-delay: 0.4s; }
+  .social-box, .email-box { animation-delay: 0.5s; }
+  .techstack-box { animation-delay: 0.6s; }
+  .experience-box { animation-delay: 0.7s; }
+  .project-box1, .project-box2 { animation-delay: 0.8s; }
+  .p-s-box { animation-delay: 0.9s; }
+}
+
+/* Mobile animations on scroll */
+@media (max-width: 768px) {
+  /* Animation class for scroll effect on mobile */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 30px, 0);
+    }
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  
+  /* Create a class for elements that will animate on scroll */
+  .scroll-animated {
+    opacity: 0 !important; /* Force opacity to 0 initially */
+    /* Add properties for better performance */
+    will-change: opacity, transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    transform: translateZ(0) translate3d(0, 30px, 0);
+    -webkit-transform: translateZ(0) translate3d(0, 30px, 0);
+    pointer-events: none; /* Prevent interaction until animation completes */
+    transition: none !important; /* Disable any transitions that might interfere */
+  }
+  
+  /* Class that gets added via JavaScript when element is in viewport */
+  .scroll-animated.visible {
+    opacity: 1 !important;
+    visibility: visible !important;
+    animation: fadeInUp 0.6s cubic-bezier(0.33, 1, 0.68, 1) forwards;
+    pointer-events: auto; /* Re-enable interaction after animation */
+  }
+  
+  /* Project boxes get staggered animations on scroll */
+  .project-box1, .project-box2 {
+    /* Existing properties */
+    height: auto;
+    width: 95%;
+    margin: 20px auto !important;
+    max-width: 500px;
+    visibility: visible; /* Change to visible by default */
+    opacity: 0; /* Use opacity for the animation instead */
+  }
+  
+  /* Only make them invisible when they have the scroll-animated class (added by JS) */
+  .project-box1.scroll-animated,
+  .project-box2.scroll-animated {
+    visibility: hidden;
+  }
+  
+  .project-box1.visible, .project-box2.visible {
+    animation: fadeInUp 0.6s cubic-bezier(0.33, 1, 0.68, 1) forwards;
+    visibility: visible !important;
+  }
+  
+  /* Staggered animation delays for projects - smaller delays for smoother feel */
+  .project-box1:nth-child(1) { animation-delay: 0.05s; }
+  .project-box1:nth-child(2) { animation-delay: 0.1s; }
+  .project-box2:nth-child(1) { animation-delay: 0.15s; }
+  .project-box2:nth-child(2) { animation-delay: 0.2s; }
+  
+  .left-box, .right-box {
+    margin: 20px auto !important;
+    opacity: 0;
+    will-change: opacity, transform;
+  }
+  
+  .left-box.visible, .right-box.visible {
+    animation: fadeInUp 0.6s cubic-bezier(0.33, 1, 0.68, 1) forwards;
+  }
+  
+  .p-s-box {
+    height: auto;
+    width: 95%;
+    margin: 40px auto 20px auto;
+    padding: 15px 0;
+    opacity: 0;
+    will-change: opacity, transform;
+  }
+  
+  .p-s-box.visible {
+    animation: fadeInUp 0.6s cubic-bezier(0.33, 1, 0.68, 1) forwards;
+  }
 }
