@@ -348,6 +348,9 @@
     
   }
 
+  #mobile-projects-text {
+    display: none;
+  }
 
 .project-box1 {
   height: 105%;
@@ -595,6 +598,14 @@ font-size: 15px;
   font-size: 15px !important;
   text-wrap: wrap !important;
   width: 200px;
+}
+
+
+#mobile-projects-text {
+  display: block;
+  margin: 30px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 30px;
 }
 
 .project-box1, .project-box2 {
