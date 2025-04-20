@@ -201,6 +201,10 @@ body {
         padding: 10px 0;
     }
 
+    .r2-col1-a a {
+        display: block; width: 100%; height: 100%;
+    }
+
     .r2-col1-b {
         height: auto;
         width: 100%;

@@ -491,14 +491,14 @@ font-size: 15px;
  }
 
  .upper-name-box p {
-  font-size: 25px;
+  font-size: 35px;
   left: -10px;
   animation: none;
  }
 
  .upper-name-box img {
-  height: 75px !important;
-  width: 75px !important;
+  height: 80px !important;
+  width: 80px !important;
   
  }
 
@@ -507,10 +507,12 @@ font-size: 15px;
   margin-left: 0px;
   margin-top: 10px;
   max-width: 75%;
+  align-items: center ;
  }
 
  #mobile-tagline {
   display:flex;
+  height: 4vh;
 }
 #desktop-tagline {
   display: none;
@@ -520,6 +522,7 @@ font-size: 15px;
   width: 95% !important;
   margin: 10px auto;
   opacity: 1; /* Override for initial page load */
+  
 }
 
 .marquee span {
