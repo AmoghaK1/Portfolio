@@ -126,3 +126,111 @@ body {
     width: 50%;
 }
 
+@media (max-width: 768px) {
+    body {
+        height: 100%;
+        width: 100vw;
+        overflow-x: hidden;
+    }
+
+    header {
+        height: 10%;
+        width: 100vw; 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container {
+        height: 100%;
+        width: 100%;
+        max-width: 100vw;
+        margin: 0;
+        padding: 10px;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .row1, .row2, .row3, .row4 {
+        flex-direction: column;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+    }
+
+    .r1-col1, .r1-col2, .r2-col1, .r2-col2, .r3-col1, .r3-col2, .r4-col1 {
+        height: auto;
+        width: 100%;
+        margin-right: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+    }
+
+    .r1-sub-col2 {
+        height: auto;
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .r1-sub-sub-col2 {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .r2-col1-a {
+        height: auto;
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        justify-items: center;
+        align-items: center;
+        gap: 15px;
+        padding: 10px 0;
+    }
+
+    .r2-col1-b {
+        height: auto;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    /* Common styles for all boxes to ensure they're centered on mobile */
+    .name-box, .tagline-box, .location-box, .theme-toggle-box,
+    .resume-box, .social-box, .techstack-box, .email-box,
+    .experience-box, .project-box1, .project-box2, .p-s-box {
+        width: 95%;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        margin-top: 10px !important;
+        margin-bottom: 10px !important;
+    }
+    
+    /* Specific overrides for experience box size */
+    .experience-box {
+        min-height: 400px;
+    }
+
+    .row3 {
+        margin-bottom: 20px;
+    }
+
+    .row4 {
+        margin-bottom: 30px;
+    }
+}

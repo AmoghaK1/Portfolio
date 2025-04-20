@@ -65,7 +65,9 @@
 
 @keyframes pulseProfile {
   0% { box-shadow: 0 0 15px rgba(138, 43, 226, 0.7); }
-  50% { box-shadow: 0 0 25px rgba(0, 180, 216, 0.7); }
+  50% { 
+    box-shadow: 0 0 15px rgba(0, 180, 216, 0.7);
+    border: 3px solid rgba(0, 180, 216, 0.7); }
   100% { box-shadow: 0 0 15px rgba(138, 43, 226, 0.7); }
 }
 
@@ -83,6 +85,13 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 14px;
   color: var(--text-secondary);
+}
+
+#mobile-tagline {
+  display:none;
+}
+#desktop-tagline {
+  display: flex;
 }
 
 .tagline-box {
@@ -213,6 +222,13 @@
   align-items: center;
 }
 
+#desktop-email {
+  display: flex;
+}
+
+#mobile-email {
+  display: none;
+}
 .social-box img {
     background-size: cover;
     -webkit-filter: invert(80%); /* Safari/Chrome */
@@ -452,4 +468,172 @@ font-size: 15px;
   justify-content: space-evenly;
   align-items: center;
   margin: 30px;
+}
+
+
+@media (max-width: 768px) {
+ .navbar-box {
+    width: 60vw !important;
+  }
+
+ .navbar-box a {
+  font-size: 14px;
+  
+ }
+
+ .name-box {
+  height: 40vh;
+  width: 95%;
+  margin: 0 auto;
+ }
+
+ .upper-name-box p {
+  font-size: 25px;
+  left: -10px;
+  animation: none;
+ }
+
+ .upper-name-box img {
+  height: 75px !important;
+  width: 75px !important;
+  
+ }
+
+ .lower-name-box {
+  font-size: 12px;
+  margin-left: 0px;
+  margin-top: 10px;
+  max-width: 75%;
+ }
+
+ #mobile-tagline {
+  display:flex;
+}
+#desktop-tagline {
+  display: none;
+}
+
+.tagline-box {
+  width: 95% !important;
+  margin: 10px auto;
+}
+
+.marquee span {
+  font-size: 15px;
+}
+
+.location-box {
+  display: none;
+}
+
+.resume-box {
+  height: 75px !important;
+  width: 95% !important;
+  margin: 15px auto;
+  position: static;
+}
+
+.theme-toggle-box {
+  display: none;
+}
+
+.social-box {
+  height: 90px !important;
+  width: 90% !important;
+  margin: 10px auto !important;
+}
+
+.social-box i {
+  font-size: 45px;
+    -webkit-filter: invert(10%); /* Safari/Chrome */
+    filter: invert(10%);
+    
+}
+#desktop-email {
+  display: none;
+}
+
+#mobile-email {
+  display: flex;
+}
+
+.techstack-box {
+  width: 95%;
+  margin: 10px auto;
+}
+
+
+.techstack-img {
+  height: 50px !important;
+  width: 50px !important;
+  margin: 10px 5px !important;
+  border-radius: 30px !important;
+}
+
+.lower-techstack p {
+  font-size: 20px !important;
+  text-align: center !important;
+}
+
+.experience-box {
+  height: 100%;
+  width: 95%;
+  margin: 20px auto !important;
+}
+
+.upper-experience-box p {
+  font-size: 22px;
+  margin-bottom: 5px;
+}
+
+.job-title {
+  font-size: 25px !important;
+  
+}
+
+.company {
+  font-size: 15px !important;
+  text-wrap: wrap !important;
+  width: 200px;
+}
+
+.project-box1, .project-box2 {
+  height: auto;
+  width: 95%;
+  margin: 20px auto !important;
+  max-width: 500px;
+}
+
+.lower-pb span {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  margin-left: 10px;
+  flex-wrap: wrap;
+}
+
+.tech-box {
+  margin-right: 5px !important;
+  height: 18px;
+  margin-bottom: 10px;
+  
+  
+}
+
+.left-box, .right-box {
+  margin: 20px auto !important;
+}
+
+#pb4 {
+  height: auto;
+  margin-bottom: 30px !important;
+}
+
+.p-s-box {
+  height: auto;
+  width: 95%;
+  margin: 40px auto 20px auto;
+  padding: 15px 0;
+}
+
 }
