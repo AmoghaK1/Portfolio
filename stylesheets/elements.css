@@ -453,3 +453,171 @@ font-size: 15px;
   align-items: center;
   margin: 30px;
 }
+
+/* Mobile-specific styling to match Joshua Brigati's design */
+@media screen and (max-width: 768px) {
+  .social-box {
+    height: auto;
+    width: 100%;
+    margin: 8px 0;
+    padding: 15px 0;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(30, 30, 30, 0.9);
+    border-radius: 12px;
+  }
+  
+  .social-box:hover {
+    transform: none;
+    border: 1px solid rgba(138, 43, 226, 0.3);
+  }
+  
+  .resume-box {
+    margin: 10px 0;
+    padding: 20px 15px;
+  }
+  
+  .resume-box p {
+    font-size: 18px;
+  }
+  
+  .resume-icons {
+    width: 25%;
+  }
+  
+  /* Tech stack display on mobile */
+  .techstack-box {
+    width: 100%;
+    margin: 15px 0;
+    padding: 10px 5px;
+  }
+  
+  .techstack-img {
+    height: 45px;
+    width: 45px;
+    margin: 10px 5px;
+  }
+  
+  .lower-techstack p {
+    margin: 5px 15px;
+    font-size: 22px;
+  }
+  
+  /* Email box adjustment */
+  .email-box {
+    width: 100%;
+    padding: 15px 0;
+    margin: 10px 0;
+  }
+  
+  /* Project boxes for mobile */
+  .project-box1, .project-box2 {
+    height: auto;
+    width: 100%;
+    margin: 15px 0;
+  }
+  
+  .right-box, .left-box {
+    margin: 15px 0;
+  }
+  
+  /* PS box for mobile */
+  .p-s-box {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding: 15px;
+  }
+
+  /* Social icons 2x2 grid layout for mobile only */
+  .social-icons-grid {
+    display: none; /* Hidden by default, only shown on mobile */
+  }
+
+  .r2-col1-a {
+    display: none; /* Hide the original social icons container on mobile */
+  }
+  
+  .r2-col1-b .email-box {
+    display: none; /* Hide the original email box on mobile */
+  }
+  
+  /* Show the mobile grid layout */
+  .r2-col1 {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .social-icons-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px;
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  
+  .social-icons-grid .social-box,
+  .social-icons-grid .email-box {
+    height: auto;
+    margin: 0;
+    padding: 15px 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--dark-surface);
+    border-radius: 12px;
+  }
+  
+  .social-icons-grid .email-box i {
+    font-size: 35px;
+  }
+  
+  /* Adjust the tech stack box to be below the social grid */
+  .r2-col1-b {
+    width: 100%;
+  }
+  
+  .r2-col1-b .techstack-box {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  /* Hide mobile social grid on desktop */
+  .social-icons-grid {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .upper-name-box p {
+    font-size: 28px;
+    left: -10px;
+  }
+  
+  .upper-name-box img {
+    height: 60px;
+    width: 60px;
+  }
+  
+  .lower-name-box {
+    font-size: 13px;
+  }
+  
+  /* Smaller tech icons for very small devices */
+  .techstack-img {
+    height: 38px;
+    width: 38px;
+  }
+  
+  #project-title {
+    font-size: 24px;
+  }
+  
+  .tech-box {
+    margin-right: 10px;
+    font-size: 9px;
+  }
+}

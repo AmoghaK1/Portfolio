@@ -126,3 +126,157 @@ body {
     width: 50%;
 }
 
+/* Media Queries for Responsive Design */
+@media screen and (max-width: 1200px) {
+    .container {
+        width: 85%;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .container {
+        width: 90%;
+    }
+    
+    .row1 {
+        flex-direction: column;
+        height: auto;
+    }
+    
+    .r1-col1, .r1-col2 {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+    
+    .r1-sub-col2 {
+        flex-direction: column;
+    }
+    
+    .r1-sub-sub-col2 {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        overflow-x: hidden;
+    }
+    
+    .container {
+        width: 95%;
+        margin: 10px;
+        padding: 5px;
+    }
+    
+    /* Main content rows to stack vertically */
+    .row2, .row3 {
+        flex-direction: column;
+        height: auto;
+    }
+    
+    /* Stack navbar items vertically and center them */
+    .navbar-box {
+        width: 90%;
+        margin: 10px auto;
+    }
+    
+    /* Make columns take full width on mobile */
+    .r2-col1, .r2-col2, .r3-col1, .r3-col2 {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+    
+    /* Social icons should be full width and stacked */
+    .r2-col1 {
+        flex-direction: column;
+    }
+    
+    .r2-col1-a, .r2-col1-b {
+        width: 100%;
+    }
+    
+    .social-box {
+        margin-bottom: 10px;
+        padding: 5px;
+    }
+    
+    /* Resume button styles to match Joshua Brigati's design */
+    .resume-box {
+        width: 100%;
+        padding: 15px 10px;
+        margin-bottom: 15px;
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    /* Projects to be full width and properly spaced */
+    .project-box1, .project-box2 {
+        margin-bottom: 20px;
+    }
+    
+    /* Adjust the tech stack display */
+    .techstack-box {
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+    
+    /* Email box to be more prominent */
+    .email-box {
+        width: 100%;
+        margin: 15px 0;
+        padding: 15px 0;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    body {
+        height: auto;
+    }
+    
+    .container {
+        margin: 5px;
+        width: 95%;
+    }
+    
+    /* Make the name box more prominent on mobile */
+    .name-box {
+        padding: 15px 10px;
+    }
+    
+    /* Make location map image responsive */
+    .location-box img {
+        width: 100%;
+        height: auto;
+    }
+    
+    /* Custom styling for social links to match Joshua's design */
+    .social-box {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 10px;
+        background-color: var(--dark-surface);
+        border-radius: 12px;
+    }
+    
+    /* Stack tech icons cleanly */
+    .upper-techstack {
+        height: auto;
+    }
+    
+    .lower-techstack {
+        margin-top: 10px;
+        text-align: left;
+        padding-left: 10px;
+    }
+    
+    /* Project sections to be more compact */
+    .row4 {
+        height: auto;
+    }
+    
+    .r4-col1 {
+        width: 100%;
+    }
+}
+
