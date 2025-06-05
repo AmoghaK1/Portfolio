@@ -14,8 +14,8 @@
     <header>
         <div class="navbar-box">
             <a href="#" class="active"><p>Home</p></a>
-            <a><p>About</p></a>
-            <a><p>Contact</p></a>
+            <a id="about-btn"><p>About</p></a>
+            <a id="contact-btn"><p>Contact</p></a>
         </div>
     </header>
     <div class="container">
@@ -32,7 +32,7 @@
                         <p>Amogha Khare</p>
                     </div>
                     <div class="lower-name-box">
-                        <p>A SY Tech Enthusiast persuing AI and Data Science. Quick witted and Knowlegable, what else could you ask for!<br><br>
+                        <p>💻Passionate developer with a soft spot for clean code, clever logic, and late-night debugging sessions 🌙. AI & DS Undergrad @ VIIT, Pune<br><br>
                         Currently Working as a Developer at Researchers and Innovators Cell, VIIT Pune</p>
                     </div>
                 </div>
@@ -51,13 +51,15 @@
                         <div class="resume-box">
                             <p>RESUME</p>
                             <div class="resume-icons">
-                                <i class="fa-solid fa-download"></i>
+                               <a href="G://PROGRAMMING//College//WEB TECH//Portfolio//docs//Amogha_Khare_Resume April 25.pdf" 
+                               download style="text-decoration: none">
+                                <i class="fa-solid fa-download" style="color: white;"></i></a>
                                 <i class="fa-solid fa-eye"></i>
                             </div>
                         </div>
                         <div class="theme-toggle-box">
                             <label class="theme-switch">
-                                <input type="checkbox" class="theme-switch__checkbox" checked>
+                                <input type="checkbox" class="theme-switch__checkbox" id="theme-btn" checked>
                                 <div class="theme-switch__container">
                                   <div class="theme-switch__clouds"></div>
                                   <div class="theme-switch__stars-container">
@@ -82,19 +84,27 @@
             </div>
         </div>
        <div class="row2">
-            <div class="r2-col1">
+            <div class="r2-col1">                
                 <div class="r2-col1-a">
                     <div class="social-box">
-                        <img id="linkedin_logo" src="./images/linkedin_logo.webp" alt="linkedin_logo">
+                        <a href="https://www.linkedin.com/in/amogha-khare-3778a828a/" target="_blank" rel="noopener noreferrer">
+                            <img id="linkedin_logo" src="./images/linkedin_logo.webp" alt="linkedin_logo">
+                        </a>
                     </div>
                     <div class="social-box">
-                        <img id="github_logo" src="./images/github_logo.png" alt="github_logo">
+                        <a href="https://github.com/AmoghaK1" target="_blank" rel="noopener noreferrer">
+                            <img id="github_logo" src="./images/github_logo.png" alt="github_logo">
+                        </a>
                     </div>
                     <div class="social-box">
-                        <img id="instagram_logo" src="./images/instagram_logo.png" alt="instagram_logo">
+                        <a href="https://instagram.com/quirkless_amogha" target="_blank" rel="noopener noreferrer">
+                            <img id="instagram_logo" src="./images/instagram_logo.png" alt="instagram_logo">
+                        </a>
                     </div>
                     <div class="social-box" id="mobile-email">
-                        <i class="fa-regular fa-envelope fa-xl"></i>
+                        <a href="mailto:amogha.khare@gmail.com" style="text-decoration: none;">
+                            <i class="fa-regular fa-envelope fa-xl" style="color: white;"></i>
+                        </a>
                     </div>
 
                 </div>
@@ -109,9 +119,11 @@
                         <div class="lower-techstack">
                             <p>Tech I ❤️</p>
                         </div>
-                    </div>
+                    </div>                    
                     <div class="email-box" id="desktop-email">
-                        <i class="fa-regular fa-envelope fa-xl"></i>
+                        <a href="mailto:amogha.khare@gmail.com" style="text-decoration: none;">
+                            <i class="fa-regular fa-envelope fa-xl"  style="color: white;" ></i>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -154,10 +166,15 @@
             <div class="project-box1">
                 <div class="upper-pb">
                     <img src="./images/pb-1-dark.png" alt="nda-project-image">
-                </div>
-                <div class="lower-pb">
-                    <p id="domain">User Management System</p>
-                    <p id="project-title">Nrutyashree Dance Academy Website</p>
+                </div>                  <div class="lower-pb">                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <p id="domain">User Management System</p>
+                        <a href="http://www.nrutyashreedanceacademy.in" target="_blank" id="pb-link">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Visit Site
+                        </a>
+                    </div>
+                    <p id="project-title">
+                        Nrutyashree Dance Academy Website
+                    </p>
                     <span>
                         <div class="tech-box">NodeJS</div><div class="tech-box">ExpressJS</div><div class="tech-box">MongoDB</div><div class="tech-box">HTML</div><div class="tech-box">CSS</div><div class="tech-box">Tailwind</div>
                     </span>

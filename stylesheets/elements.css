@@ -489,6 +489,23 @@ font-size: 15px;
   width: 95%;
   margin: 0 auto;
  }
+  #pb-link {
+   font-size: 13px;
+   padding: 3px 8px;
+   margin-right: 5px;
+   background-color: rgba(138, 43, 226, 0.15);
+   color: var(--accent-quaternary);
+   box-shadow: none;
+   border: 1px solid rgba(138, 43, 226, 0.3);
+   position: relative;
+   
+ }
+ 
+ #pb-link:hover {
+   background-color: rgba(138, 43, 226, 0.3);
+   transform: translateY(-2px);
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+ }
 
  .upper-name-box p {
   font-size: 25px;
@@ -544,6 +561,20 @@ font-size: 15px;
   height: 90px !important;
   width: 90% !important;
   margin: 10px auto !important;
+}
+
+.social-box img, .email-box i {
+    display: block;
+    margin: 0 auto;
+}
+
+/* Ensure anchor tags take up full space and center content */
+.social-box a, .email-box a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
 }
 
 .social-box i {
@@ -615,6 +646,31 @@ font-size: 15px;
   max-width: 500px;
 }
 
+#pb-link {
+  color: rgb(178, 178, 178);
+  font-size: 16px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin: 12px 10px 5px 0;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 7px 16px;
+  
+  
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  box-shadow: 0 3px 8px rgba(138, 43, 226, 0.4);
+  border: 1px solid rgb(255, 255, 255);
+}
+
+#pb-link:hover {
+  background-color: var(--accent-quaternary);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 12px rgba(76, 201, 240, 0.6);
+}
+
 .lower-pb span {
   display: flex;
   justify-content: left;
@@ -647,4 +703,12 @@ font-size: 15px;
   padding: 15px 0;
 }
 
+/* Media query for project link on mobile */
+@media (max-width: 768px) {
+  #pb-link {
+    font-size: 14px;
+    padding: 4px 10px;
+    margin-right: 5px;
+  }
+}
 }
