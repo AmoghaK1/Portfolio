@@ -17,7 +17,7 @@ const viewBtn = document.querySelector('.resume-icons .fa-eye');
 
 viewBtn.addEventListener('click', function() {
     // Replace 'your-resume.pdf' with the actual path to your resume file
-    const resumeUrl = 'G://PROGRAMMING//College//WEB TECH//Portfolio//docs//Amogha_Khare_Resume April 25.pdf';
+    const resumeUrl = '../docs/Amogha_Khare_Resume April 25.pdf';
     
     // Open the resume in a new tab
     window.open(resumeUrl, '_blank');
