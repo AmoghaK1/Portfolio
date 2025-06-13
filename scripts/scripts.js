@@ -1,10 +1,14 @@
 // Block About and Contact buttons with "under construction" alerts
-document.getElementById('about-btn').addEventListener('click', function() {
-    alert('About section is under construction.');
+document.getElementById('work-btn').addEventListener('click', function() {
+    alert('"Work" section is under construction.');
 });
 
 document.getElementById('contact-btn').addEventListener('click', function() {
-    alert('Contact section is under construction.');
+    alert('"Contact" section is under construction.');
+});
+
+document.getElementById('me-btn').addEventListener('click', function() {
+    alert("Hold on...He's cooking...");
 });
 
 document.getElementById('theme-btn').addEventListener('click', function() {
