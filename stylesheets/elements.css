@@ -476,7 +476,10 @@ font-size: 15px;
 
 @media (max-width: 768px) {
  .navbar-box {
-    width: 60vw !important;
+    width: 75vw !important;
+    margin: 30px auto !important;
+    justify-content: center !important;
+    gap: 8px;
   }
 
  .navbar-box a {
