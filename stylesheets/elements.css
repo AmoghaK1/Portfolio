@@ -479,7 +479,8 @@ font-size: 15px;
     width: 75vw !important;
     margin: 30px auto !important;
     justify-content: center !important;
-    gap: 6px;
+    gap: 8px;
+    padding: 0px 12px;
   }
 
  .navbar-box a {
