@@ -35,12 +35,11 @@ document.addEventListener('DOMContentLoaded', function() {
         card.style.filter = 'blur(8px)';
         card.style.transition = 'filter 0.8s ease-out';
     });
-    
-    // Remove blur progressively from top to bottom
+      // Remove blur progressively from top to bottom (with 0.3s initial hold)
     allCards.forEach((card, index) => {
         setTimeout(() => {
             card.style.filter = 'blur(0px)';
-        }, index * 130); // 150ms delay between each card
+        }, 300 + (index * 130)); // 300ms initial hold + 130ms delay between each card
     });
     
     // Add hover effect to all cards - minimal scale increase
