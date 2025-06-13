@@ -493,35 +493,4 @@ a .glitch-title {
     visibility: visible;
 }
 
-/* Mobile glitch effect - triggered on scroll */
-.mobile-glitch-active::before,
-.mobile-glitch-active::after {
-    opacity: 1;
-}
 
-.mobile-glitch-active {
-    animation: glitch-main 0.5s infinite linear alternate-reverse;
-}
-
-.mobile-glitch-active .glitch-tooltip {
-    opacity: 1;
-    visibility: visible;
-}
-
-@media (max-width: 768px) {
-    .glitch-tooltip {
-        position: fixed;
-        bottom: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-        background: rgba(138, 43, 226, 0.9);
-        padding: 8px 15px;
-        border-radius: 20px;
-        font-size: 14px;
-        z-index: 1001;
-    }
-    
-    .glitch-tooltip::before {
-        display: none;
-    }
-}

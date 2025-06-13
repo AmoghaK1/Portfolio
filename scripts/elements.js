@@ -57,36 +57,4 @@ document.addEventListener('DOMContentLoaded', function() {
             this.style.transform = 'scale(1)'; // Return to normal size
         });
     });
-    
-    // Glitch effect for project title
-    const projectTitle = document.querySelector('.glitch-title');
-    let hasTriggeredMobileGlitch = false;
-    
-    if (projectTitle) {
-        // Mobile glitch effect on scroll
-        function checkMobileGlitch() {
-            if (window.innerWidth <= 768 && !hasTriggeredMobileGlitch) {
-                const rect = projectTitle.getBoundingClientRect();
-                const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
-                
-                if (isVisible) {
-                    projectTitle.classList.add('mobile-glitch-active');
-                    hasTriggeredMobileGlitch = true;
-                    
-                    // Remove the effect after 2 seconds
-                    setTimeout(() => {
-                        projectTitle.classList.remove('mobile-glitch-active');
-                    }, 2000);
-                    
-                    // Remove scroll listener after triggering
-                    window.removeEventListener('scroll', checkMobileGlitch);
-                }
-            }
-        }
-        
-        // Add scroll listener for mobile
-        if (window.innerWidth <= 768) {
-            window.addEventListener('scroll', checkMobileGlitch);
-        }
-    }
-});
+    });
