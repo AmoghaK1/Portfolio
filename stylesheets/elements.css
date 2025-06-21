@@ -747,3 +747,259 @@ font-size: 15px;
     margin-right: 5px;
   }
 }
+
+/* Navbar transition effects */
+.page-transition {
+  transition: all 1.2s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.scale-glow {
+  transform: scale(1.01);
+  box-shadow: 0 0 10px rgba(138, 43, 226, 0.2), 0 0 20px rgba(138, 43, 226, 0.05);
+  filter: brightness(1.05) saturate(1.02) blur(0.5px);
+  z-index: 999;
+  border: 1px solid rgba(138, 43, 226, 0);
+  transition: all 0.6s ease-out, border-color 0.8s ease-out;
+  animation: borderGlow 2s ease-in-out forwards;
+}
+
+@keyframes borderGlow {
+  0% {
+    border-color: rgba(138, 43, 226, 0);
+  }
+  100% {
+    border-color: rgba(138, 43, 226, 0.4);
+  }
+}
+
+.distort-effect {
+  filter: blur(0.5px) contrast(0.9);
+  opacity: 0.8;
+}
+
+.fade-out {
+  opacity: 0;
+  transform: translateY(-10px) scale(0.95);
+  filter: blur(1px);
+}
+
+/* Specific hover states during transition */
+.scale-glow:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 15px rgba(43, 76, 226, 0.3), 0 0 25px rgba(138, 43, 226, 0.1);
+}
+
+/* Enhanced scaling effects for specific element types */
+.project-box1.scale-glow, .project-box2.scale-glow {
+  transform: scale(1.002);
+  box-shadow: 0 0 6px rgba(67, 43, 226, 0.15), 0 0 12px rgba(43, 141, 226, 0.03);
+  filter: brightness(1.02) saturate(1.005) blur(0.3px);
+  z-index: 999;
+  border: 1px solid rgba(95, 43, 226, 0);
+  transition: all 0.6s ease-out, border-color 0.8s ease-out;
+  animation: projectPulse 3s ease-in-out infinite alternate, projectBorderGlow 2s ease-in-out forwards;
+}
+
+@keyframes projectBorderGlow {
+  0% {
+    border-color: rgba(138, 43, 226, 0);
+  }
+  100% {
+    border-color: rgba(86, 43, 226, 0.3);
+  }
+}
+
+.social-box.scale-glow, .email-box.scale-glow {
+  transform: scale(1.01);
+  box-shadow: 0 0 10px rgba(0, 180, 216, 0.2), 0 0 20px rgba(0, 180, 216, 0.05);
+  filter: brightness(1.05) saturate(1.02) blur(0.3px);
+  z-index: 999;
+  border: 1px solid rgba(0, 180, 216, 0);
+  transition: all 0.6s ease-out, border-color 0.8s ease-out;
+  animation: socialPulse 3s ease-in-out infinite alternate, socialBorderGlow 2s ease-in-out forwards;
+}
+
+@keyframes socialBorderGlow {
+  0% {
+    border-color: rgba(0, 180, 216, 0);
+  }
+  100% {
+    border-color: rgba(0, 180, 216, 0.4);
+  }
+}
+
+.name-box.scale-glow {
+  transform: scale(1.01);
+  box-shadow: 0 0 10px rgba(43, 80, 226, 0.2), 0 0 20px rgba(138, 43, 226, 0.05);
+  filter: brightness(1.05) saturate(1.02) blur(0.4px);
+  z-index: 999;
+  border: 1px solid rgba(138, 43, 226, 0);
+  transition: all 0.6s ease-out, border-color 0.8s ease-out;
+  animation: namePulse 3s ease-in-out infinite alternate, nameBorderGlow 2s ease-in-out forwards;
+}
+
+@keyframes nameBorderGlow {
+  0% {
+    border-color: rgba(138, 43, 226, 0);
+  }
+  100% {
+    border-color: rgba(43, 67, 226, 0.4);
+  }
+}
+
+@keyframes projectPulse {
+  0% {
+    
+  }
+
+  40% { 
+    box-shadow: 0 0 15px rgba(0, 180, 216, 0.3), 0 0 30px rgba(0, 180, 216, 0.1);
+    transform: scale(1.02);
+    filter: brightness(1.1);
+  }
+  100% { 
+    box-shadow: 0 0 20px rgba(0, 180, 216, 0.4), 0 0 35px rgba(0, 180, 216, 0.15);
+    transform: scale(1.025);
+    filter: brightness(1.15);
+  }
+}
+
+@keyframes socialPulse {
+  
+  0%{}
+  
+  40% { 
+    box-shadow: 0 0 15px rgba(0, 180, 216, 0.3), 0 0 30px rgba(0, 180, 216, 0.1);
+    transform: scale(1.02);
+    filter: brightness(1.1);
+  }
+  100% { 
+    box-shadow: 0 0 20px rgba(0, 180, 216, 0.4), 0 0 35px rgba(0, 180, 216, 0.15);
+    transform: scale(1.025);
+    filter: brightness(1.15);
+  }
+}
+
+@keyframes namePulse {
+  0%{}
+  40% { 
+    box-shadow: 0 0 15px rgba(0, 180, 216, 0.3), 0 0 30px rgba(0, 180, 216, 0.1);
+    transform: scale(1.02);
+    filter: brightness(1.1);
+  }
+  100% { 
+    box-shadow: 0 0 20px rgba(0, 180, 216, 0.4), 0 0 35px rgba(0, 180, 216, 0.15);
+    transform: scale(1.025);
+    filter: brightness(1.15);
+  }
+}
+
+
+/* Glitch shake effect for entire page */
+.page-glitch {
+  animation: glitchShake 0.15s ease-in-out;
+}
+
+@keyframes glitchShake {
+  0% { 
+    transform: translate(0);
+    filter: hue-rotate(0deg) saturate(1);
+  }
+  10% { 
+    transform: translate(-1px, 1px);
+    filter: hue-rotate(180deg) saturate(1.5);
+  }
+  20% { 
+    transform: translate(1px, -1px);
+    filter: hue-rotate(-90deg) saturate(1.2);
+  }
+  30% { 
+    transform: translate(-1px, -1px);
+    filter: hue-rotate(270deg) saturate(1.3);
+  }
+  40% { 
+    transform: translate(1px, 1px);
+    filter: hue-rotate(45deg) saturate(1.1);
+  }
+  50% { 
+    transform: translate(-1px, 0px);
+    filter: hue-rotate(-180deg) saturate(1.4);
+  }
+  60% { 
+    transform: translate(1px, 0px);
+    filter: hue-rotate(90deg) saturate(1.2);
+  }
+  70% { 
+    transform: translate(0px, -1px);
+    filter: hue-rotate(-45deg) saturate(1.3);
+  }
+  80% { 
+    transform: translate(0px, 1px);
+    filter: hue-rotate(135deg) saturate(1.1);
+  }
+  90% { 
+    transform: translate(-1px, 1px);
+    filter: hue-rotate(-270deg) saturate(1.5);
+  }
+  100% { 
+    transform: translate(0);
+    filter: hue-rotate(0deg) saturate(1);
+  }
+}
+
+/* Red-blue glitch effect */
+.glitch-colors {
+  position: relative;
+}
+
+.glitch-colors::before,
+.glitch-colors::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: inherit;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.glitch-colors::before {
+  background: rgba(255, 0, 0, 0.1);
+  transform: translate(-1px, 0);
+  mix-blend-mode: screen;
+}
+
+.glitch-colors::after {
+  background: rgba(0, 100, 255, 0.1);
+  transform: translate(1px, 0);
+  mix-blend-mode: screen;
+}
+
+/* Subtle body overlay during glitch */
+.body-glitch-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(
+    45deg, 
+    rgba(255, 0, 0, 0.02) 0%, 
+    transparent 25%, 
+    rgba(0, 100, 255, 0.02) 50%, 
+    transparent 75%, 
+    rgba(255, 0, 0, 0.02) 100%
+  );
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0;
+  animation: glitchOverlay 0.15s ease-in-out;
+}
+
+@keyframes glitchOverlay {
+  0%, 100% { opacity: 0; }
+  20%, 80% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}

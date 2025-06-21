@@ -1,3 +1,41 @@
+// Function to trigger glitch effect
+function triggerGlitchEffect() {
+    try {
+        console.log('Triggering glitch effect...');
+        
+        // Add glitch shake to entire page
+        document.body.classList.add('page-glitch');
+        
+        // Create temporary overlay for color distortion
+        const overlay = document.createElement('div');
+        overlay.classList.add('body-glitch-overlay');
+        document.body.appendChild(overlay);
+        
+        // Add glitch colors to random elements
+        const elements = document.querySelectorAll('.name-box, .project-box1, .project-box2, .social-box, .techstack-box');
+        const randomElements = Array.from(elements).sort(() => 0.5 - Math.random()).slice(0, 2);
+        
+        randomElements.forEach(element => {
+            element.classList.add('glitch-colors');
+        });
+        
+        // Remove effects after animation completes
+        setTimeout(() => {
+            document.body.classList.remove('page-glitch');
+            if (overlay.parentNode) {
+                overlay.remove();
+            }
+            
+            randomElements.forEach(element => {
+                element.classList.remove('glitch-colors');
+            });
+        }, 150);
+        
+    } catch (error) {
+        console.error('Error in glitch effect:', error);
+    }
+}
+
 // Block About and Contact buttons with "under construction" alerts
 // document.getElementById('work-btn').addEventListener('click', function() {
 //     alert('"Work" section is under construction.');
@@ -16,33 +54,123 @@ document.getElementById('theme-btn').addEventListener('click', function() {
      this.checked = true;
     });
 
-// Smooth scroll for navbar links
-document.querySelectorAll('.navbar-box a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
+// Navbar page transition effects with scroll-first behavior
+document.querySelectorAll('.navbar-box a').forEach(navLink => {
+    navLink.addEventListener('click', function(e) {
         e.preventDefault();
+        console.log('Navbar link clicked:', this.textContent.trim());
         
-        // Remove active class from all navbar links
-        document.querySelectorAll('.navbar-box a').forEach(link => {
-            link.classList.remove('active');
-        });
+        const targetPage = this.getAttribute('href');
+        const linkText = this.textContent.trim();
         
-        // Add active class to clicked link
-        this.classList.add('active');
-        
-        const targetId = this.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
-        
-        if (targetElement) {
-            // Adjust offset based on screen size
-            const isMobile = window.innerWidth <= 768;
-            const headerHeight = isMobile ? 140 : 120;
-            const targetPosition = targetElement.offsetTop - headerHeight;
-            
-            window.scrollTo({
-                top: targetPosition,
-                behavior: 'smooth'
-            });
+        // Don't redirect if it's an anchor link - just scroll
+        if (targetPage.startsWith('#')) {
+            const targetElement = document.querySelector(targetPage);
+            if (targetElement) {
+                const isMobile = window.innerWidth <= 768;
+                const headerHeight = isMobile ? 140 : 120;
+                const targetPosition = targetElement.offsetTop - headerHeight;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+            return;
         }
+        
+        // For page redirects, first scroll to relevant section, then glow, then redirect
+        let targetSection = null;
+        let elementsToScale = [];
+        let elementsToDistort = [];
+        
+        // Determine target section and elements based on navbar item
+        switch(linkText.toLowerCase()) {
+            case 'work':
+                targetSection = '#target-project';
+                elementsToScale = document.querySelectorAll('.project-box1, .project-box2');
+                elementsToDistort = document.querySelectorAll('.name-box, .tagline-box, .location-box, .resume-box, .social-box, .techstack-box, .experience-box, .theme-toggle-box, .email-box, .p-s-box');
+                break;
+            case 'contact':
+                targetSection = '#target-contact';
+                elementsToScale = document.querySelectorAll('.social-box, .email-box');
+                elementsToDistort = document.querySelectorAll('.name-box, .tagline-box, .location-box, .resume-box, .techstack-box, .experience-box, .project-box1, .project-box2, .theme-toggle-box, .p-s-box');
+                break;
+            case 'me':
+                targetSection = '#target-me';
+                elementsToScale = document.querySelectorAll('.name-box');
+                elementsToDistort = document.querySelectorAll('.tagline-box, .location-box, .resume-box, .social-box, .techstack-box, .experience-box, .project-box1, .project-box2, .theme-toggle-box, .email-box, .p-s-box');
+                break;
+            default:
+                // Default behavior for other links
+                elementsToScale = document.querySelectorAll('.name-box, .techstack-box, .experience-box');
+                elementsToDistort = document.querySelectorAll('.tagline-box, .location-box, .resume-box, .social-box, .project-box1, .project-box2');
+                break;
+        }
+        
+        // Phase 1: Scroll to target section first
+        if (targetSection) {
+            const targetElement = document.querySelector(targetSection);
+            if (targetElement) {
+                const isMobile = window.innerWidth <= 768;
+                const headerHeight = isMobile ? 140 : 120;
+                const targetPosition = targetElement.offsetTop - headerHeight;
+                
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }
+          // Phase 2: After scroll completes (1s), start glow effects
+        setTimeout(() => {
+            // Add transitioning class to body for overlay effect
+            document.body.classList.add('transitioning');
+            
+            // Trigger glitch effect multiple times during transition
+            triggerGlitchEffect();
+            
+            // Add loading state to navbar
+            const navbar = document.querySelector('.navbar-box');
+            navbar.classList.add('loading');
+            
+            // Add transition class to all elements
+            document.querySelectorAll('.name-box, .tagline-box, .location-box, .theme-toggle-box, .resume-box, .social-box, .techstack-box, .email-box, .experience-box, .project-box1, .project-box2, .p-s-box').forEach(element => {
+                element.classList.add('page-transition');
+            });
+            
+            // Start glow effects
+            elementsToScale.forEach(element => {
+                element.classList.add('scale-glow');
+            });
+            
+            // Start distortion effects after 0.2s
+            setTimeout(() => {
+                elementsToDistort.forEach(element => {
+                    element.classList.add('distort-effect');
+                });
+                
+                // Trigger another glitch
+                triggerGlitchEffect();
+            }, 200);
+            
+            // Additional glitch effects during the transition
+            setTimeout(() => triggerGlitchEffect(), 800);
+            setTimeout(() => triggerGlitchEffect(), 1500);
+            
+        }, 1000);
+        
+        // Phase 3: After 2 seconds of glow effects, fade out
+        setTimeout(() => {
+            document.querySelectorAll('.name-box, .tagline-box, .location-box, .theme-toggle-box, .resume-box, .social-box, .techstack-box, .email-box, .experience-box, .project-box1, .project-box2, .p-s-box').forEach(element => {
+                element.classList.add('fade-out');
+            });
+        }, 3000);
+        
+        // Phase 4: Navigate to new page after fade out (4s total)
+        setTimeout(() => {
+            window.location.href = targetPage;
+        }, 4000);
     });
 });
 
@@ -58,7 +186,6 @@ window.addEventListener('scroll', function() {
 });
 
 // Resume buttons functionality
-// const downloadBtn = document.querySelector('.resume-icons .fa-download');
 const viewBtn = document.querySelector('.resume-icons .fa-eye');
 
 viewBtn.addEventListener('click', function() {
@@ -70,5 +197,6 @@ viewBtn.addEventListener('click', function() {
 });
 
 // Add cursor pointer to elements with click events
-downloadBtn.style.cursor = 'pointer';
-viewBtn.style.cursor = 'pointer';
+if (viewBtn) {
+    viewBtn.style.cursor = 'pointer';
+}

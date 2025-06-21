@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
     allCards.forEach((card, index) => {
         setTimeout(() => {
             card.style.filter = 'blur(0px)';
-        }, 300 + (index * 130)); // 300ms initial hold + 130ms delay between each card
+        }, 200 + (index * 100)); // 300ms initial hold + 130ms delay between each card
     });
     
     // Add hover effect to all cards - minimal scale increase
